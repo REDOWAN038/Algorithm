@@ -69,6 +69,8 @@ int main()
 
     sort(graph, graph + m, cmp);
 
+    cout << "Edges : \n";
+
     for (i = 0; i < m; i++)
     {
         ll u = findParent(graph[i].a);
@@ -78,6 +80,7 @@ int main()
             continue;
         else
         {
+            cout << graph[i].a << " " << graph[i].b << endl;
             merge(u, v);
             sum += graph[i].w;
         }
