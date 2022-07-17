@@ -85,6 +85,23 @@ void convexHull(ll n)
     // for (ll i = 0; i < points.size(); i++)
     //     cout << points[i].x << " " << points[i].y << endl;
 
+    vector <point> temp;
+    temp = points;
+    points.clear();
+
+    for (ll i = 0; i < temp.size(); i++)
+    {
+        while (i < temp.size() - 1 && orientation(s.top(), temp[i], temp[i + 1]) == 0)
+        {
+            i++;
+        }
+
+        points.push_back(temp[i]);
+    }
+
+    if (points.size() < 3)
+        return;
+
     s.push(points[0]);
     s.push(points[1]);
 
